@@ -1,0 +1,32 @@
+About: Algoassets is a marketplace for Algorand assets, most especially NFTs. It allows its users to buy, sell, mint, and store their art and craft work as assets on Algorand assets. It is built under the Algorand blockchain.
+
+Tasks:Inability for creator and artistst to earn money from their art and other creations through digital means. The need to make passive income from their art and craft.
+
+
+Timeline:
+
+Disciplines:
+
+Role:
+
+Tools:
+
+Research:
+
+Ideation:
+
+Develop/Design:
+
+Reflection:
+
+Research/Competitor Analysis:
+
+Ideation/Developing a Design Solution:
+
+Redesign Goals:
+
+Ideation/ Mood board:
+
+Design/ Design System and Launch:
+
+Reflection/Post Designs Outcome:

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #protected-content {
+            display: none;
+        }
+        #password-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        #password-popup button{
+            background-color: #00a5fd;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #fff;
+        }
+        #password-popup input{
+            background-color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #00a5fd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.856);
+            z-index: 999;
+        }
+    </style>
+
+    <title>Abdulwahb Adamson</title>
+
+    
+</head>
+<body>
+    <nav> 
+        <div class="logo">
+            <a href="index.html"><img src="image/logo.svg" alt="" width="50px"></a>
+        </div>
+        <div class="openMenu"><i class="fa fa-bars"></i></div>
+        <ul class="mainMenu">
+            <li><a href="index.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://www.behance.net/adamsonoladipupo" target="_blank">Archived</a></li>
+            <li><a href="resume.pdf" download="Abdulwahab Adamson.pdf">Resume</a></li>
+            <div class="closeMenu"><i class="fa fa-times"></i></div>
+            <span class="icons">
+                <a class="fab" href="https://www.linkedin.com/in/abdulwahabadamson/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fff" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                <a class="fab" href="https://medium.com/@adamsonoladipupo" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fff" d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/></svg></a>
+                <a class="fab" href="mailto:adamsonoladipupo@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
+            </span>
+        </ul>
+    </nav>
+
+
+
+    <div id="overlay"></div>
+
+    <div id="password-popup">
+        <h2>Protected Content</h2>
+        <p>Please contact the author</p>
+        <input type="password" id="password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    
+
+    <div class=" project Gosub">
+        <div class="ProjectDP">
+            <h1>Gosub Limited Re-branding</h1>
+            <p>A walkthrough my design jorney at Gosub</p>
+            <img src="Work/Gosub/Design 11 H.png" alt="">
+        </div>
+    </div>
+    <div id="protected-content">
+            <div class="designProcess ">
+        <div class="designOverview">
+            <p>Design Highlights</p>
+            <h3>Design challenge and responsibilities overview</h3>
+            <hr>
+            <div class="designOverview1">
+                <div>
+                    <h4>About</h4>
+                    <p>Gosub Limited is an online platform that provides telecommunication services for its customers, some of its services are conversion of airtime to cash, Data subscription, Airtime subscription, and many more. </p>
+                </div>
+                <div >
+                    <h4>Tasks</h4>
+                    <p>Rebranding: This involves the creation of assets from the brand's initial logo to represent the face of Gosub and, the creation of a color palate for the brand to help boost the brand's personality and promote brand awareness.
+                        Designing Social media flyers for their social media pages, 
+                        </p>
+                </div>
+            </div>
+            
+            
+            <hr>
+            <div class="designOverview1">
+                <div>
+                    <h4>Timeline</h4>
+                    <p>Nov 2022 - June 2023</p>
+                </div>
+                <div>
+                    <h4>Disciplines</h4>
+                    <p>Visual Design</p>
+                    <p>User Experience Research</p>
+                </div>
+                <div>
+                    <h4>Role</h4>
+                    <p>Design Lead - Interaction design, Visual</p>
+                    <p>UX/UI Mobile Designl</p>
+                    <p>Prototyping</p>
+                    <p>Web Design</p>
+                </div>
+                <div>
+                    <h4>Tools</h4>
+                    <p>Figma</p>
+                    <p>Adobe Creative Suite</p>
+                    <p>Skype</p>
+                    <p>Procreate</p>
+                </div>
+            </div>
+            <br><br><br>
+            
+            <div>
+                <h3>The Process</h3>
+                <hr>
+                <div class="designOverview2">
+                    <div style="text-align: start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #00a5fd; display: flex; justify-content: center; align-items: center; text-align: center;">
+                            <h2>1</h2>
+                        </div>
+                        <h4 style="padding-top: 10px;">Research</h4>
+                        <p>Identifying Problems</p>
+                        <p>Competitor Analysis</p>
+                        <p>User Surveys</p>
+                    </div>
+                    <br>
+                    <div style="text-align: start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #00a5fd; display: flex; justify-content: center; align-items: center; text-align: center;">
+                            <h2>2</h2>
+                        </div>
+                        <h4 style="padding-top: 10px;">Ideation</h4>
+                        <p>Identifying Problems</p>
+                        <p>Competitor Analysis</p>
+                        <p>User Surveys</p>
+                    </div>
+                    <br>
+                    <div style="text-align: start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #00a5fd; display: flex; justify-content: center; align-items: center; text-align: center;">
+                            <h2>3</h2>
+                        </div>
+                        <h4 style="padding-top: 10px;">Develop/Design</h4>
+                        <p>Identifying Problems</p>
+                        <p>Competitor Analysis</p>
+                        <p>User Surveys</p>
+                    </div>
+                    <br>
+                    <div style="text-align: start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #00a5fd; display: flex; justify-content: center; align-items: center; text-align: center;">
+                            <h2>4</h2>
+                        </div>
+                        <h4 style="padding-top: 10px;">Reflection</h4>
+                        <p>Identifying Problems</p>
+                        <p>Competitor Analysis</p>
+                        <p>User Surveys</p>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div>
+                <p>Research</p>
+                <h4>Competitor Analysis</h4>
+                <hr>
+                <p>Although there are many other platforms offering thesame services as Gosub, taking a closer look at what is already in the market, analysing the strength and weakness in the mode at which they communicate with their customers, and then building on these insights to create a more customer friendly visuals for customers.
+                </p>
+                
+            </div>
+            <br><br><br>
+            <div>
+                <p>Ideation</p>
+                <h4>Developping a Design Solution</h4>
+                <hr>
+                <p>Although there are many other platforms offering thesame services as Gosub, taking a closer look at what is already in the market, analysing the strength and weakness in the mode at which they communicate with their customers, and then building on these insights to create a more customer friendly visuals for customers.
+                </p>
+                <br>
+                <h4>Redesign Goals</h4>
+                <ul>
+                    <li>Help new customers discover you without the expense of digital ads.</li>
+                    <li>Learn about your community through surveys and generate revenue-driving loyalty</li>
+                    <li>Incentivize return visits and engagement with points & rewards.</li>
+                    <li>Message your customers with the content they’re most likely to engage with.</li>
+                </ul>
+            </div>
+            <br><br><br>
+            <div>
+                <p>Ideation</p>
+                <h4>Moodboard</h4>
+                <hr>
+                <p>Although there are many other platforms offering thesame services as Gosub, taking a closer look at what is already in the market, analysing the strength and weakness in the mode at which they communicate with their customers, and then building on these insights to create a more customer friendly visuals for customers.
+                </p>
+            </div>
+            <br><br><br>
+            <div>
+                <p>Design</p>
+                <h4>Design System and Launch</h4>
+                <hr>
+                <p>Although there are many other platforms offering thesame services as Gosub, taking a closer look at what is already in the market, analysing the strength and weakness in the mode at which they communicate with their customers, and then building on these insights to create a more customer friendly visuals for customers.
+                </p>
+                
+            </div>
+            <br><br><br>
+            <div>
+                <p>Reflection</p>
+                <h4>Post Designs Outcome</h4>
+                <hr>
+                <p>Although there are many other platforms offering thesame services as Gosub, taking a closer look at what is already in the market, analysing the strength and weakness in the mode at which they communicate with their customers, and then building on these insights to create a more customer friendly visuals for customers.
+                </p>
+                
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    
+    <div>
+        <h4 class="section" style="margin-bottom: 40px; margin-top: 100px;">More Projects while you are here</h4>
+        <section class="section works">
+            <a href="comingsoon.html" class="workcard">
+                <img src="Work/Food app/Food app.png" alt="">
+                <div class="caption">
+                    <h2>Food App</h2>
+                    <p>Brand design, Visual Design & Web design</p>
+                </div>
+            </a>
+
+            <a href="knead.html" class="workcard">
+                <img src="Work/Knead Token/Gif Knead token.gif" alt="">
+                <div class="caption">
+                    <h2>Knead Token</h2>
+                    <p>Brand design, Visual Design & Web design</p>
+                </div>
+            </a>
+
+            <a href="algoasset.html" class="workcard">
+                <img src="Work/Algoassets/Algoassets.gif" alt="">
+                <div class="caption">
+                    <h2>Algoassets</h2>
+                    <p>Brand design, Visual Design & Web design</p>
+                </div>
+            </a>
+        </section>
+    </div>
+
+    <footer class="section footer">
+        <div class="">
+            <span class="footerIcon">
+                <a class="fab" href="https://www.linkedin.com/in/abdulwahabadamson/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="13.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#0a2635" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                <a class="fab" href="https://medium.com/@adamsonoladipupo" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="21" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#0a2635" d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/></svg></a>
+                <a class="fab" href="mailto:adamsonoladipupo@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#0a2635" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
+            </span>
+        </div>
+        <p>© 2024 ABDULWAHAB ADAMSON O.</p>
+    </footer>
+    
+
+    <script>
+        const mainMenu = document.querySelector('.mainMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const openMenu = document.querySelector('.openMenu');
+const menu_items = document.querySelectorAll('nav .mainMenu li a');
+
+
+
+
+openMenu.addEventListener('click',show);
+closeMenu.addEventListener('click',close);
+
+// close menu when you click on a menu item 
+menu_items.forEach(item => {
+    item.addEventListener('click',function(){
+        close();
+    })
+})
+
+function show(){
+    mainMenu.style.display = 'flex';
+    mainMenu.style.top = '0';
+}
+function close(){
+    mainMenu.style.top = '-100%';
+}
+
+    </script>
+
+    <!-- Script for controlling password -->
+    <script>
+        var correctPassword = "password"; // Replace with your desired password
+    
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+            if (password === correctPassword) {
+                document.getElementById('protected-content').style.display = 'block';
+                document.getElementById('password-popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            } else {
+                alert('Incorrect password');
+            }
+        }
+    
+        // Show the password popup when the page loads
+        window.onload = function() {
+            document.getElementById('password-popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
