@@ -338,6 +338,33 @@
         border-radius: 5px;
 
     }
+
+    /* Styling Knead Page */
+
+    .kneadImage{
+        display: grid;
+    }
+    .kneadImage img{
+        width: 100%;
+    }
+    .mood-board {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px 0px;
+    }
+
+    .mood-board img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .mood-board-item {
+        flex: 1 1 calc(49.333% - 20px);
+        max-width: calc(49.333% - 20px);
+    }
     /* Styling algoassets page */
     .painPoint{
         background-color: var(--pryColor2);
@@ -563,7 +590,11 @@
         width: 100%;
     }
 
-
+/*----------------------- styling Knead Page ---------------*/
+    .mood-board-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 
     }
     @media (max-width: 500px){
