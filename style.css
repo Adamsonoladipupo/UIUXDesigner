@@ -355,16 +355,36 @@
         padding: 20px 0px;
     }
 
+
     .mood-board img {
         width: 100%;
         height: auto;
         border-radius: 10px;
     }
-
     .mood-board-item {
         flex: 1 1 calc(49.333% - 20px);
         max-width: calc(49.333% - 20px);
     }
+
+
+/* --------- Styling foodApp page ------------ */
+    .mood-board-food img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .mood-board-food {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 10px;
+        padding: 20px 0px;
+    }
+    .mood-board-item-food {
+        flex: 1 1 calc(24.333% - 20px);
+        max-width: calc(23.333% - 20px);
+    }
+
     /* Styling algoassets page */
     .painPoint{
         background-color: var(--pryColor2);
@@ -595,6 +615,15 @@
         flex: 1 1 100%;
         max-width: 100%;
     }
+
+/* --------- Styling foodApp page ------------ */
+.mood-board-food {
+    justify-content: space-evenly;
+}
+.mood-board-item-food {
+    flex: 1 1 calc(49.5% - 10px);
+    max-width: calc(49.5% - 10px);
+}
 
     }
     @media (max-width: 500px){
