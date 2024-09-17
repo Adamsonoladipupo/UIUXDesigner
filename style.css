@@ -87,6 +87,19 @@
         border-radius: 20px;
         
     }
+    .myButton2{
+        background-color: #ffffff00;
+        color: var(--pryColor);
+        padding: 10px 30px;
+        margin: 15px 10px;
+        font-size: 15px;
+        border: 1px solid var(--pryColor);
+        border-radius: 20px;
+        cursor: pointer;
+        
+    }
+
+
     .myButton:hover{
         background-color: var(--pryColor2);
     }
@@ -102,12 +115,18 @@
         gap: 5px;
     }
     .workcard{
-        width: 32%;
+        width: 49%;
         height: auto;
         margin-bottom: inherit ;
         overflow: hidden;
         position: relative;
         border-radius: 5px;
+    }
+    .CTA{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 50px;
     }
     .workcard img{
         width: 100%;
@@ -168,6 +187,9 @@
         justify-content: space-between;
         align-items: center;
     }
+    .aboutMe p{
+        line-height: 1.3rem;
+    }
     .authorImage img{
         width: 350px;
         height: auto;
@@ -185,6 +207,7 @@
         margin: 0px 20px;
         display: flex;
         justify-content: space-around;
+        gap: 20px;
     }
     .ExpEduSkls h3{
         padding-bottom: 5px;
@@ -306,7 +329,7 @@
         color: #fff;
     }
     .designProcess p{
-        color: #bebebe;
+        color: #ffffff;
     }
     .designProcess hr{
         border-bottom: 1px solid var(--secColor) ;
@@ -534,6 +557,10 @@
         .designOverview{
             padding: 40px;
         }
+        .CTA{
+            display: flex;
+            flex-wrap: wrap;
+        }
 /* ---------------------------------------------------------------
 -------------------  CSS for the about page  ------------------
 --------------------------------------------------------------- */
@@ -554,7 +581,8 @@
         padding: 0px 10px;
     }
     .ExpEduSkls{
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: start ;
     }
     .DesignValueMain{
