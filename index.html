@@ -22,7 +22,7 @@
         </div>
         <div class="openMenu"><i class="fa fa-bars"></i></div>
         <ul class="mainMenu">
-            <li><a href="index.html">Work</a></li>
+            
             <li><a href="about.html">About</a></li>
             <li><a href="https://www.behance.net/adamsonoladipupo" target="_blank">Archived</a></li>
             <li><a href="resume.pdf" download="Abdulwahab Adamson.pdf">Resume</a></li>
@@ -34,12 +34,15 @@
             </span>
         </ul>
     </nav>
-    <div class="section introduction">
-        <h1>Hello! i'm a UI UX & brand designer crafting meaningful identities, systems and experiences for new and innovative technology</h1>
-        <p>Previously — worked @ Gosub Limited, @ Rhetorex Communication, The Jakpa Diary</p>
-        <button class="myButton"><a href="about.html" >Let's Connect</a></button>
+    <div class="section introduction" >
+        <h1>Hello! I design user interfaces and research for innovative technologies like Web 3, crypto, and AI.</h1><br>
+        <p>Previously — worked @ Gosub Limited, @ Rhetorex Communication </p> <br>
+        <button class="myButton"><a href="about.html" >More About Me</a></button>
+
+        <button  class="myButton2"><a href="mailto:adamsonoladipupo@gmail.com" style="color: #0a2635;">Let's Connect</a></button>
         
     </div>
+    <br>
     <section class=" section works">
         <a href="algoasset.html" class="workcard">
                 <img src="Work/Algoassets/Algoassets.gif" alt="">
@@ -52,7 +55,7 @@
         <a href="foodapp.html" class="workcard">
             <img src="Work/Food app/Food app.png" alt="">
             <div class="caption">
-                <h2>Food App</h2>
+                <h2>Tasty Fingers</h2>
                 <p>User Interface and experience Design</p>
             </div>
         </a>
@@ -73,7 +76,7 @@
             </div>
         </a>
 
-        <a href="comingsoon.html" class="workcard">
+        <!-- <a href="comingsoon.html" class="workcard">
             <img src="Work/TJD/lg.png" alt="">
             <div class="caption">
                 <h2>The Jakpa Diary</h2>
@@ -87,7 +90,7 @@
                 <h2>Lahtech</h2>
                 <p>Brand design, Visual Design & Web design</p>
             </div>
-        </a>
+        </a> -->
 
         
         
@@ -134,5 +137,20 @@ function close(){
 }
 
     </script>
+
+<!-- For automatically copyig my email when clickedon -->
+<script>
+    function copyEmail() {
+        var emailField = document.getElementById("email");
+        emailField.select();
+        emailField.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        document.execCommand("copy");
+
+        // Alert or message to notify the user
+        alert("Email copied: " + emailField.value);
+    }
+</script>
 </body>
 </html>
