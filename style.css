@@ -197,20 +197,23 @@
         /* margin: 20px; */
     }
     .aboutMe div:nth-child(2){
-        padding: 0px 60px;
+        padding: 0px 100px;
     }
     hr{
         border: 1px solid #ebebeb;
         margin: 30px;
     }
     .ExpEduSkls{
-        margin: 20px 20px;
+        margin: 50px 40px;
         display: flex;
         justify-content: space-around;
-        gap: 20px;
+        gap: 30px;
     }
     .ExpEduSkls h3{
-        padding-bottom: 5px;
+        padding-bottom: 10px;
+    }
+    .ExpEduSkls p{
+        padding-bottom: 10px;
     }
     .experience p:nth-child(3){
         padding-top: 15px;
@@ -233,8 +236,8 @@
     }
     .DesignValueMain{
         background-color: var(--pryColor);
-        margin-top: 3%;
-        padding: 25px 60px 30px 60px;
+        margin-top: 10%;
+        padding: 60px 60px 60px 60px;
     }
     .DesignValueMain hr{
         border-bottom: 1px solid var(--secColor) ;
@@ -255,7 +258,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
     }
     .designValue div{
         background-color: var(--secColor);
@@ -574,7 +577,7 @@
     .authorImage img{
         width: 100%;
         border-radius: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         text-align: center;
     }
     .aboutMe div:nth-child(2){
@@ -586,7 +589,8 @@
         justify-content: start ;
     }
     .DesignValueMain{
-        padding: 25px 20px 20px 20px;
+        padding: 25px 20px 50px 20px;
+        margin-bottom: 50px;
     }
     .designValue{
         background-color: var(--pryColor);
