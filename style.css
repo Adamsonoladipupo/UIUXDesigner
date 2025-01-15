@@ -98,7 +98,32 @@
         cursor: pointer;
         
     }
-
+    /* -- For Styling Tooltops -- */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 100%;
+        background-color: #fffb14;
+        color: #000;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        bottom: 500%;
+        left: 50%;
+        margin-left: -80px;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
 
     .myButton:hover{
         background-color: var(--pryColor2);
@@ -117,7 +142,7 @@
     .workcard{
         width: 49%;
         height: auto;
-        margin-bottom: inherit ;
+        margin-bottom: 20px ;
         overflow: hidden;
         position: relative;
         border-radius: 5px;
@@ -152,6 +177,13 @@
         transition: all 0.5s ease;
 
     }
+    .Inprogress{
+        background-color: #00a5fd;
+        position: none;
+
+    }
+
+
     .caption h2{
         font-weight: 600;
         letter-spacing: 1px;
