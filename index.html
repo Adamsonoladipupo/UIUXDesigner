@@ -3,156 +3,1405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="logo.ico" type="image/x-icon">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Airtime Cabal</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        :root {
+            --pryColor : #2260BE;
+            --pryColorLight : #ECF4FF;
+            --pryColor90Per : #0061f3;
+            --grey : #9E9E9E;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", serif;
+        }
+        body{
+            background-color: #fff;
+        }
+        /* --- For fonts size --- */
+        p, a {
+            font-size: 14px;
+        }
+
+        h1{
+            font-size: 60px;
+            margin-bottom: 20px;
+            margin-right: 50px;
+        }
+        h2{
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* -- This is for styling the Navigation section of the page  -- */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            
+        }
+        header nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 70px 130px 0 130px;
+            background-color: red;
+            z-index: 99;
+            padding: 20px 0;
+            
+        }
+        .nav-menu {
+            display: contents;
+            align-items: center;
+            justify-content: space-between;
+            position: static;
+            /* flex-direction: row; */
+            /* justify-content: flex-end; */
+            transform: translateY(0);
+        }
+        .nav-links a{
+            margin: 0 30px;
+            color: #000;
+        }
+        .hamburger {
+            display: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:visited {
+            color: inherit;
+        }
+        button{
+            padding: 15px 25px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            transition: 0.5s all ease;
+        }
+        .nav-button button{
+            margin: 0 7px 0 0;
+        }
+        .nav-button button:nth-child(1){
+            background-color: var(--pryColorLight);
+            color: var(--pryColor);
+        }
+        .nav-button button:nth-child(2){
+            background-color: var(--pryColor);
+            color: #fff;
+            
+        }
+
+        /* -- This is for styling the Hero Section  -- */
+        .hero_section{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 70px 130px 0 130px;
+        }
+        .hero_image img{
+            width: 500px;
+        }
+        .hero_button button{
+            margin: 20px 7px 0 0;
+        }
+        .hero_button button:nth-child(1){
+            background-color: var(--pryColor);
+            color: #fff;
+        }
+        .hero_button button:nth-child(2){
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* -- This is for Styling the Features Section  -- */
+        .features{
+            background-color: var(--pryColorLight);
+            padding: 50px 130px;
+        }
+        .Features_container {
+            display: grid;
+            column-gap: 20px;
+            row-gap: 20px;
+            grid-template-columns: auto auto;
+        }
+
+        .Features_container > div {
+            text-align: left;
+            
+        }
+        .Features_container > div > div {
+            background-color: #fff;
+            padding: 50px;
+            text-align: left; 
+            margin-bottom: 20px;
+            border-radius: 30px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.10);
+        }
+        .features_item span svg{
+            background-color: var(--pryColor);
+            width: 35px;
+            height: 35px;
+            padding: 7px;
+            border-radius: 100px;
+            fill: #fff;
+            margin-bottom: 20px;
+        }
+        .features_image {
+            position: relative;
+        }
+        .features_image img {
+            place-items: center;
+            width: 100%;
+        }
+        .Features_container > div:nth-child(1) > div:nth-child(1) button{
+            position: absolute;
+            bottom: 8px;
+        }
+        .Features_container > div:nth-child(2) > div:nth-child(2) button{
+            position: absolute;
+            bottom: 8px;
+        }
+        .Features_container > div > div button {
+            margin-top: 20px;
+        }
+        .Features_container > div > div p {
+            margin: 20px 0;
+        }
+        .Features_container > div > div h4 {
+            font-size: 30px;
+        }
+        .Features_container > div:nth-child(2) > div:nth-child(2) {
+            background-color: #434343;
+            color: #fff;
+        }
+
+        /* -- This is for stylng the API Features section -- */
+
+        .API_features{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            place-items: center ;
+            margin: 60px 130px;
+        }
+        .F_header{
+            background-color: var(--pryColorLight);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            width: 80%;
+        }
+        .F_header button{
+            margin: 0 0px;
+            background-color: var(--pryColorLight);
+            cursor: pointer;
+        }
+        .F_header button.active {
+            background-color: var(--pryColor);
+            color: #fff;
+        }
+        .F_body{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        .F_body p{
+            font-size: 20px;
+            margin: 30px 0;
+        }
+        .F_body_text{
+            margin-right: 100px;
+        }
+        .F_body_text button{
+            margin-top: 50px;
+            background-color: var(--pryColor);
+        }
+        .F_body_image img{
+            width: 500px;
+        }
+
+        /* -- Styling the testimonials section -- */
+
+        .testimonials{
+            background-color: var(--pryColor);
+            padding: 40px 130px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tst_header{    
+            display: flex;
+            align-items:start ;
+            justify-content: space-between;
+            margin: 20px 0 60px 0;
+            color: #fff;
+        }
+        .tst_items{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            transition: 0.5s all ease;
+        }
+        .tst_item{
+            background-color: #fff;
+            border-radius: 30px;
+            padding: 30px 50px;
+            /* cursor: pointer; */
+            width: 330px;
+            height: 1;
+            position: absolute;
+            transition: left 0.5s cubic-bezier(0.645, 0.045, 0.354, 1);
+            overflow: hidden;
+        }
+        .slider-item:nth-child(1){
+            left: calc(-330px + -20px);
+        }
+        .slider-item:nth-child(2){
+            left: 0;
+        }
+        .slider-item:nth-child(3){
+            left: calc(330px + 20px);
+        }
+        .slider-item:nth-child(4){
+            left: calc((330px + 20px) * 2);
+        }
+        .slider-item:nth-child(5){
+            left: calc((330px + 20px) * 3);
+        }
+        .slider-item:nth-child(6){
+            left: calc((330px + 20px) * 4);
+        }
+        .slider-item:nth-child(7){
+            left: calc((330px + 20px) * 5);
+        }
+        .slider-item:nth-child(8){
+            left: calc((330px + 20px) * 6);
+        }
+
+        .arrow_btn{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .arrow_btn svg:hover{
+            fill: #151515;
+        }
+
+        /* --- Styling the Trusted partner section --- */
+
+        .trusted_partners{
+            display: flex;
+            align-items: center;
+            padding: 0px 130px;
+            overflow: hidden;
+        }
+        .trusted_partners_text {
+            padding: 30px 30px 30px 0;
+        }
+        .trusted_partners p{
+            font-size: 16px;
+            font-weight: 600;
+            width: 100px;
+        }
+
+        .logo_slider {
+            overflow-x: hidden;
+        }
+        .overflow {
+            display: flex;
+            padding: 8px 16px;
+            overflow: hidden;
+        }
+        .logo_wrapper {
+            display: flex;
+            justify-content: space-around;
+            animation: Logoloop 25s linear infinite;
+        }
+        .logo_item {
+            margin-left: 1px;
+            padding: 16px;
+            aspect-ratio: 30/9;
+            display: grid;
+            place-items: center;
+            border-radius: 5px;
+        }
+        .logo_item img {
+            width: 130px;
+            margin-inline: 28px;
+        }
+
+        @keyframes Logoloop {
+            from {  
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .hr1{
+            border-top: 0.5px solid #868686;
+            border-bottom: 1px solid #fff;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+        }
+
+
+        /* --- Styling the Article section --- */
+
+        .article_blogs{
+            padding: 20px 130px;
+            margin-top: 50px;
+        }
+        .article_blogs h2{
+            margin-bottom: 60px;
+        }
+        .article_items{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .article{
+            width: 250px;
+            margin-right: 50px;
+        }
+        .article a{
+            font-size: inherit;
+        }
+        .article_snippet h3{
+            margin-bottom: 20px;
+            border-left: 3px solid var(--pryColor);
+            padding-left: 30px;
+        }
+        .article_snippet{
+            border-left: 1px solid #7E7E7E;
+        }
+        .article_snippet p{
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+
+        /* -- This is for styling the Call To Action CTA footer region of the page -- */
+        .footer_CTA{
+            margin: 210px 130px 50px 130px;
+            background-color: var(--pryColor);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 500px;
+        }
+        .CTA_image img {
+            margin-top: -190px;
+            margin-left: 50px;
+        }
+        .CTA_text {
+            margin: 0 0px;
+        }
+        .CTA_text h3 {
+            color: #fff;
+            font-size: 50px;
+            margin: 0 20px 20px 20px;
+        }
+        .CTA_text p{
+            color: #fff;
+            font-size: 20px;
+            margin: 0 30px 20px 20px;
+        }
+
+        .CTA_text button{
+            background-color: #fff;
+            margin: 0 20px 20px 20px;
+        }
+
+        /* -- This is for styling the Footer section of the page -- */
+        footer p{
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        footer a{
+            padding-top: 10px;
+            font-size: 20px;
+        }
+        footer{
+            background-color: #151515;
+            padding: 20px 130px;
+            color: #A6A6A6;
+        }
+        .footer_links{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 100px 0;
+            color: #A6A6A6;
+        }
+        .footer_links a{
+            color: #A6A6A6;
+        }
+        .footer_below_hr {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 50px 0;
+        }
+        footer hr {
+            border-top: 1px solid #A6A6A6;
+            border-bottom: 1px solid #ffffff00;
+            border-left: 1px solid #ffffff00;
+            border-right: 1px solid #ffffff00;
+        }
+        .footer_icons svg{
+            fill: #A6A6A6;
+            cursor: pointer;
+            transition: 0.5s all ease;
+        }
+        .footer_icons svg:hover{
+            fill: #fff;
+        }
+        .footer_icons{
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer_below_hr span {
+            font-size: 14px;
+        }
+
+
+
+        /* ------------------------------------------------- */
+        /* -------- Styling for smaller screens ------------ */
+        /* ------------------------------------------------- */
+
+        @media screen and (max-width: 1220px){
+
+            header nav{
+                margin: 70px 100px 0 100px;
+            }
+            .hero_section{
+                margin: 70px 100px 0 100px;
+            }
+            .features{
+                padding: 50px 100px;
+            }
+            .API_features{
+                margin: 60px 100px;
+            }
+            .testimonials{
+                padding: 40px 100px;
+            }
+            .trusted_partners{
+                padding: 0px 100px;
+            }
+            .article_blogs{
+                padding: 20px 100px;
+            }
+            .footer_CTA{
+                margin: 210px 100px 50px 100px;
+            }
+            .CTA_text h3 {
+                font-size: 40px;
+                margin: 0 30px 20px 20px;
+            }
+            footer{
+                padding: 20px 100px;
+            }
+
+        }
+        @media screen and (max-width: 1020px){
+            h1{
+                font-size: 50px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            header nav{
+                margin: 70px 60px 0 60px;
+            }
+            .hero_section{
+                margin: 70px 60px 0 60px;
+            }
+            .hero_image img{
+                width: 400px;
+            }
+            .features{
+                padding: 50px 60px;
+            }
+            .API_features{
+                margin: 60px 60px;
+            }
+            .testimonials{
+                padding: 40px 60px;
+            }
+            .trusted_partners{
+                padding: 0px 60px;
+            }
+            .article_blogs{
+                padding: 20px 60px;
+            }
+            .footer_CTA{
+                margin: 210px 60px 50px 60px;
+            }
+            .CTA_text h3 {
+                font-size: 40px;
+                margin: 0 20px 20px 20px;
+            }
+            footer{
+                padding: 20px 60px;
+            }
+        }
+        @media screen and (max-width: 900px){
+            /* Styling font size */
+            p, a {
+                font-size: 14px;
+            }
+            h1{
+                font-size: 42px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            h2{
+                font-size: 30px;
+                margin-bottom: 16px;
+            }
+
+            /* ---------Styling the Header/ Navigation menu */
+
+            header nav{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 30px 50px 0 50px;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                transition: transform 0.3s ease;
+                transform: translateX(100%);
+                background-color: #fff;
+                padding: 30px;
+
+            }
+            .nav-links a{
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                margin: 20px 0;
+            }
+            .nav-menu.active {
+                display: flex;
+                transform: translateY(0);
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                -webkit-transform: translateY(8px) rotate(45deg);
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                -webkit-transform: translateY(-8px) rotate(-45deg);
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                background-color: #424242;
+            }
+            /* --------End of styling for the Header/ Navigation */
+
+
+            .hero_section{
+                margin: 70px 60px 0 60px;
+            }
+            .hero_image img{
+                width: 350px;
+            }
+            .features{
+                padding: 50px 60px;
+            }
+            .Features_container > div > div {
+                padding: 30px;
+            }
+            .API_features{
+                margin: 60px 60px;
+            }
+            .F_header{
+                width: 90%;
+            }
+            .F_body_image img{
+                width: 300px;
+            }
+            .testimonials{
+                padding: 40px 60px;
+            }
+            .tst_header{    
+                margin: 20px 0 30px 0;
+            }
+            .trusted_partners{
+                padding: 0px 60px;
+            }
+            .trusted_partners_text {
+                padding: 15px 15px 15px 0;
+            }
+            .logo_item img {
+                width: 100px;
+                margin-inline: 18px;
+            }
+            .article{
+                width: 150px;
+                margin-right: 50px;
+            }
+            .article_blogs{
+                padding: 20px 60px;
+                margin-top: 20px;
+            }
+            .article_blogs h2{
+                margin-bottom: 30px;
+            }
+            .footer_CTA{
+                margin: 130px 60px 50px 60px;
+                height: 400px;
+            }
+            .CTA_image img {
+                margin-top: -200px;
+                margin-left: 30px;
+            }
+            .CTA_text h3 {
+                font-size: 30px;
+                margin: 0 20px 20px 20px;
+            }
+            .CTA_text p {
+                font-size: 14px;
+                margin: 0 30px 20px 20px;
+            }
+            footer{
+                padding: 20px 60px;
+            }
+            footer p{
+                font-size: 14px;
+                margin: 10px 0;
+            }
+            footer a{
+                padding-top: 10px;
+                font-size: 14px;
+            }
+            .footer_icons{
+                width: 180px;
+                display: flex;
+            }
+            .footer_links{
+                margin: 50px 0;
+                color: #A6A6A6;
+            }
+            .footer_below_hr {
+                margin: 50px 0;
+            }
+        }
+        @media screen and (max-width: 750px){
+            h1{
+                font-size: 35px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            header nav{
+                margin: 40px 30px 0 30px;
+            }
+            .hero_section{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 40px 30px 0 30px;
+            }
+            .hero_image img{
+                width: 430px;
+                margin-top: 20px;
+                
+            }
+            .features{
+                padding: 50px 30px;
+            }
+            .Features_container {
+                display: flex;
+                flex-direction: column;
+            }
+            .Features_container > div > div h4 {
+                font-size: 24px;
+            }
+            .features_image img {
+                display: none;
+            }
+            .Features_container > div:nth-child(1) > div:nth-child(1) button{
+                position: relative;
+                bottom: 8px;
+            }
+            .Features_container > div:nth-child(2) > div:nth-child(2) button{
+                position: relative;
+                bottom: 8px;
+            }
+            .API_features{
+                margin: 40px 30px;
+            }
+            .F_body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 50px;
+            }
+            .F_header{
+                padding: 10px;
+                width: 100%;
+            }
+            .F_body_image img{
+                width: 100%;
+                margin: 20px 0;
+            }
+            .testimonials{
+                padding: 30px 30px;
+            }
+            .trusted_partners{
+                padding: 0px 30px;
+            }
+            .article{
+                width: inherit;
+                margin-right: 50px;
+            }
+            .article_blogs{
+                padding: 20px 30px;
+            }
+            .article_items{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .footer_CTA{
+                margin: 210px 30px 50px 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+            .CTA_image img {
+                margin-top: -180px;
+                margin-left: 50px;
+            }
+            footer{
+                padding: 20px 30px;
+            }
+        }
+        @media screen and (max-width: 500px){
+            button{
+                padding: 10px 15px;
+                outline: none;
+                border: none;
+                border-radius: 10px;
+            }
+            h1{
+                font-size: 24px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            header nav{
+                margin: 30px 20px 0 20px;
+            }
+            .hero_section{
+                margin: 40px 20px 0 20px;
+            }
+            .hero_image img{
+                width: 290px;
+                margin-top: 20px;
+            }
+            .features{
+                padding: 30px 20px;
+            }
+            .API_features{
+                margin: 30px 20px;
+            }
+            .F_body{
+                margin-top: 20px;
+            }
+            .F_header{
+                padding: 10px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                overflow: visible;
+            }
+            .F_header button{
+                background-color: var(--pryColorLight);
+                cursor: pointer;
+            }
+            .F_body{
+                margin-top: 30px;
+            }
+            .F_body p{
+                font-size: 14px;
+                margin: 15px 0;
+            }
+            .F_body_text button{
+                margin-top: 20px;
+            }
+            .testimonials{
+                padding: 20px;
+            }
+            .tst_item{
+                padding: 20px;
+                width: 330px;
+            }
+            .tst_header{    
+                margin: 20px 0;
+            }
+            .trusted_partners{
+                padding: 0px 20px;
+            }
+            .logo_item img {
+                width: 80px;
+                margin-inline: 10px;
+            }
+            .article{
+                width: inherit;
+                margin-bottom: 20px;
+            }
+            .article_blogs{
+                padding: 20px 30px;
+            }
+            .article_items{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .footer_CTA{
+                margin: 80px 20px 50px 20px;
+                height: 100%;
+            }
+            .footer_CTA h3{
+                font-size: 24px;
+            }
+            .CTA_image img {
+                margin-top: -100px;
+                margin-left: 50px;
+            }
+            footer{
+                padding: 20px 30px;
+            }
+            .footer_links{
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                margin: 10px 0;
+            }
+            .footer_below_hr {
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: space-between;
+                margin: 20px 0;
+                gap: 20px;
+                text-align: center;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="style.css">
-
-    <title>Abdulwahb Adamson</title>
-
-    
 </head>
 <body>
-    <nav> 
-        <div class="logo">
-            <a href="index.html"><img src="image/logo.svg" alt="" width="50px">A.A</a>
-        </div>
-        <div class="openMenu"><i class="fa fa-bars"></i></div>
-        <ul class="mainMenu">
-            
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="https://www.behance.net/abdulwahabadamson" target="_blank">Behance</a></li>
-            <div class="closeMenu"><i class="fa fa-times"></i></div>
-            <span class="icons">
-                <a class="fab" href="https://www.linkedin.com/in/abdulwahabadamson/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fff" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-                <a class="fab" href="https://medium.com/@adamsonoladipupo" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fff" d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/></svg></a>
-                <a class="fab" href="mailto:adamsonoladipupo@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
-            </span>
-        </ul>
-    </nav>
-    <div class="section introduction " >
-        
-        <h1>I design innovative digital products that effectively align user needs with business objectives.</h1><br>
-        <p>Previously — worked @ Rhetorex Communication </p> <br>
-        <button class="myButton"><a href="about.html" >
-            More About Me</a></button>
-
-        <button  class="myButton2"><a href="mailto:adamsonoladipupo@gmail.com" style="color: #0a2635;">Let's Connect</a></button>
-        
-    </div>
-    <br>
-    <section class=" section works">
-
-        <a href="#" class="workcard">
-            <img src="image/localSwap.webp" alt="" class="">
-            <div class="caption tooltip ">
-                
-                <h2 class="tooltip">
-                    <span class="tooltiptext">Project in Progress! </span>
-                    Crypto-Fiat Swap</h2>
-                <p>User Research, UI Design & Brand Identity Design</p>
+    <header>
+        <nav>
+            <div class="logo">
+                Airtime Cabal
             </div>
-        </a>
-        
-        <a href="algoasset.html" class="workcard">
-                <img src="Work/Algoassets/Algoassets.gif" alt="">
-                <div class="caption">
-                    <h2>Algoassets</h2>
-                    <p>User Research and User Interface Design</p>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#">Use</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Build</a>
                 </div>
-        </a>
-
-        <a href="foodapp.html" class="workcard">
-            <img src="Work/Food app/Food app.png" alt="">
-            <div class="caption">
-                <h2>Tasty Fingers</h2>
-                <p>User Interface and Experience Design</p>
+                <div class="nav-button">
+                    <button><a href="#">Contact</a></button>
+                    <button><a href="signin.html" style="color: #fff;">Dashboard</a></button>
+                </div>
             </div>
-        </a>
-
-        <a href="knead.html" class="workcard">
-            <img src="Work/Knead Token/Gif Knead token.gif" alt="">
-            <div class="caption">
-                <h2>Knead Token</h2>
-                <p>Brand and Visual Design, </p>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </a>
-
-        
-
-        
-        
-        
-    </section>
-
-    <footer class="section footer">
-        <div class="">
-            <span class="footerIcon">
-                <a class="fab" href="https://www.linkedin.com/in/abdulwahabadamson/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="13.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#0a2635" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-                <a class="fab" href="https://medium.com/@adamsonabdulwahab" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="21" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#0a2635" d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/></svg></a>
-                <a class="fab" href="mailto:adamsonoladipupo@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#0a2635" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
-            </span>
+        </nav>
+    </header>
+    <!-- --------------This is the Hero section of the Landing page -------------- -->
+    <div class="hero_section">
+        <div class="hero-text&buttons">
+            <div>
+                <h1>The Gateway to Africa's Payment Ecosystem random </h1>
+            </div>
+            <div class="hero_button">
+                <button><a href="#" style="color: #fff; display: flex;">Get a free integration 
+                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></a>
+                </button>
+                <button><a href="#" style="color: #000; display: flex;">Read Docs 
+                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></a>
+                </button>
+            </div>
         </div>
-        <span id="copyright" class="copyright"></span>
+        <div class="hero_image">
+            <img src="images/mobile.png" alt="">
+        </div>
+    </div>
+    <!-- This is the Features Section -->
+    <div class="features Features_container">
+        <div>
+            <div class="features_item">
+                <h4>Access 50+ APIs protocols with secure authentication</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <div>
+                        <img src="images/image_buttons.png" alt="" >
+                    </div>
+                    <button style="background-color: var(--pryColor);"><a href="#" style="color: #fff; display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
+            </div>
+            <div class="features_item">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+                </span>
+                <h4>Major API Integration</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="features_item">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M448 160l-128 0 0-32 128 0 0 32zM48 64C21.5 64 0 85.5 0 112l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 64zM448 352l0 32-256 0 0-32 256 0zM48 288c-26.5 0-48 21.5-48 48l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 288z"/></svg>
+                </span>
+                <h4>Advance monitoring and statistics</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
+            </div>
+            <div class="features_item">
+                <h4>Advance monitoring and statistics</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <div>
+                        <img src="images/image_padlock.png" alt="">
+                    </div>
+                    <button style="background-color: #fff"><a href="#" style="color: #434343; display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#434343" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- API Features Section -->
+    <div class="API_features">
+        <div class="F_header F_buttons">
+            <button onclick="changeContent(1)">Pay-in API</button>
+            <button onclick="changeContent(2)">API Balance</button>
+            <button onclick="changeContent(3)">Swift Payment</button>
+            <button onclick="changeContent(4)">Payout API</button>
+        </div>
+        <div class="F_body">
+            <div class="F_body_text">
+                <h2 id="f_header">Fast Payment APIs Links</h2>
+                <p id="content">Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.</p>
+                <button><a href="#" style="color: #fff; display: flex;">View Dashboard 
+                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></a>
+                </button>
+            </div>
+            <div class="F_body_image">
+                <img id="F_image" src="images/image5.png" alt="image of APIs">
+            </div>
+        </div>
+    </div>          
+    <!-- Testimonials Section -->
+    <div class="testimonials container">
+        <div class="tst_header">
+            <div>
+                <h2>What Our Customers Says</h2>
+                <p>Don't take our words for it, see for yourself</p>
+            </div>
+            <div class="arrow_btn">
+                <span class=" arrow_left fas fa-arrow-left" id="next_btn">
+                    <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L8 12M8 12L12 16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </span>
+                <span class="arrow_right fas fa-arrow-right" id="prev_btn">
+                    <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16L16 12M16 12L12 8M16 12H8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </span>
+            </div>
+        </div>
+        <div class="tst_items slider">
+            <div class="tst_item slider-item">
+                <img src="images/customers logo.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 2.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 3.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 4.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 5.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">  
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 3.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Trusted Partners section -->
+    <div class="trusted_partners">
+        <div class="trusted_partners_text">
+            <p>Trusted by thousands of Businesses</p>
+        </div>
+        <div class="trusted_partners_logo">
+            <div class="logo_slider">
+                <div class="overflow">
+                    <div class="logo_wrapper">
+                        <div class="logo_item">
+                            <img src="images/customers logo.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 2.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 3.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 4.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 5.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 4.png" alt="" width="100px">
+                        </div>
+                    </div>
+                    <div class="logo_wrapper">
+                        <div class="logo_item">
+                            <img src="images/customers logo.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 2.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 3.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 4.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 5.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo.png" alt="" width="100px">
+                        </div>
+                        <div class="logo_item">
+                            <img src="images/customers logo 4.png" alt="" width="100px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="hr1">
+    <div class="article_blogs">
+        <h2>Recent articles</h2>
+        <div class="article_items">
+            <div class="article">
+                <div class="article_snippet">
+                    <h3><a href="#">Put a “Pay Now” Button to your Website for Payments</a></h3>
+                    <p>A “Pay Now” button on your website simplifies the checkout process, reduces abandoned carts, and ensures a smooth customer experience. </p>
+                </div>
+            </div>
+            <div class="article">
+                <div class="article_snippet">
+                    <h3><a href="#">Put a “Pay Now” Button to your Website for Payments</a></h3>
+                    <p>A “Pay Now” button on your website simplifies the checkout process, reduces abandoned carts, and ensures a smooth customer experience. </p>
+                </div>
+            </div>
+            <div class="article">
+                <div class="article_snippet">
+                    <h3><a href="#">Put a “Pay Now” Button to your Website for Payments</a></h3>
+                    <p>A “Pay Now” button on your website simplifies the checkout process, reduces abandoned carts, and ensures a smooth customer experience. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_CTA">
+        <div class="CTA_image hero_image">
+            <img src="images/mobile.png" alt="">
+        </div>
+        <div class="CTA_text">
+            <h3>Connect with Suppliers Globally</h3>
+            <p>When it comes to payment, we are the bridge you need. Send money to your suppliers with ease in over 100 countries.</p>
+            <button><a href="#" style="color: #2376F3; display: flex;">View Dashboard 
+                <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2376F3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></a>
+            </button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer_links">
+            <div class="footer_logo">
+                Airtime Cabal Logo
+                <p>77 King St W Suite 400, Toronto, ON M5K 0A1.</p>
+            </div>
+            <div>
+                <strong><p>Title 1</p></strong>
+                <a href="#">Identification</a><br>
+                <a href="#">Payment</a>
+            </div>
+            <div>
+                <strong><p>Title 2</p></strong>
+                <a href="#">Identification</a><br>
+                <a href="#">Payment</a>
+            </div>
+            <div>
+                <strong><p>Title 3</p></strong>
+                <a href="#">Identification</a><br>
+                <a href="#">Payment</a>
+            </div>
+        </div>
+        <hr>
+        <div class="footer_below_hr">
+            <div>
+                <span id="copyright" class="copyright"></span>
+            </div>
+            <div class="footer_icons">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 448 512" ><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                </a>
+
+            </div>
+        </div>
+
     </footer>
-    
 
     <script>
-        const mainMenu = document.querySelector('.mainMenu');
-const closeMenu = document.querySelector('.closeMenu');
-const openMenu = document.querySelector('.openMenu');
-const menu_items = document.querySelectorAll('nav .mainMenu li a');
+        // Script for controlling the Toggling of the Navigation menu ////
+
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLink = document.querySelectorAll(".nav-link");
+        
+        hamburger.addEventListener("click", mobileMenu);
+        navLink.forEach(n => n.addEventListener("click", closeMenu));
+        
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        }
+        
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+
+        // JavaScript code for controlling the customer review section ////
+        
+        // Reference To Buttons
+        var btnLeft = document.getElementById('prev_btn');
+        var btnRight = document.getElementById('next_btn');
+        
+        // Reference To Slider
+        var slider = document.querySelector('.container .slider');
+        
+        btnRight.addEventListener('click', nextSlide);
+        function nextSlide(){
+            slider.appendChild(slider.firstElementChild);
+        }
+        
+        btnLeft.addEventListener('click', prevSlide);
+        function prevSlide(){
+            slider.prepend(slider.lastElementChild);
+        }
+        
+        // Auto Sliding
+        function autoSlide(){
+            deleteInterval = setInterval(timer, 4000); // 4000 mile sec = 4 sec
+            function timer(){
+                nextSlide();
+            }
+        }
+        autoSlide();
+        
+        // Stop Auto Sliding When Mouse is Over
+        slider.addEventListener('mouseover', deleteAutoSliding);
+        btnRight.addEventListener('mouseover', deleteAutoSliding);
+        btnLeft.addEventListener('mouseover', deleteAutoSliding);
+        
+        function deleteAutoSliding(){
+            clearInterval(deleteInterval);
+        }
+        
+        // Resume Auto Sliding When Mouse is Out
+        slider.addEventListener('mouseout', autoSlide);
+        btnRight.addEventListener('mouseout', autoSlide);
+        btnLeft.addEventListener('mouseout', autoSlide);
 
 
+        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section ////
 
+        window.onload = function() {
+                changeContent(1);
+            };
 
-openMenu.addEventListener('click',show);
-closeMenu.addEventListener('click',close);
+        function changeContent(buttonNumber) {
+            const f_header = document.getElementById("f_header");
+            const F_image = document.getElementById("F_image");
+            const content = document.getElementById("content");
+            const F_buttons = document.querySelectorAll('.F_buttons button');
 
-// close menu when you click on a menu item 
-menu_items.forEach(item => {
-    item.addEventListener('click',function(){
-        close();
-    })
-})
+            // Reset all buttons' active state
+            F_buttons.forEach(button => button.classList.remove('active'));
 
-function show(){
-    mainMenu.style.display = 'flex';
-    mainMenu.style.top = '0';
-}
-function close(){
-    mainMenu.style.top = '-100%';
-}
+            // Set the active class to the clicked button
+            F_buttons[buttonNumber - 1].classList.add('active');
+
+            // Change content based on button clicked
+            if (buttonNumber === 1) {
+                f_header.textContent = "Fast Payment APIs Links";
+                F_image.src = "images/image5.png";
+                content.textContent = "Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.";
+            } else if (buttonNumber === 2) {
+                f_header.textContent = "Seamless API Integration for Your Balance Management";
+                F_image.src = "images/image6.png";
+                content.textContent = "Our API helps users manage their account balances more efficiently by providing real-time tracking and balance updates.";
+            } else if (buttonNumber === 3) {
+                f_header.textContent = "Instant Transfers with Swift Payment APIs";
+                F_image.src = "images/image7.png";
+                content.textContent = "Swift Payment APIs allow businesses to process transactions quickly, ensuring fast and reliable payments across global markets.";
+            } else if (buttonNumber === 4) {
+                f_header.textContent = "Efficient Pay-out Solutions with Our API";
+                F_image.src = "images/image8.png";
+                content.textContent = "Pay-out API provides a secure way for businesses to send payments and disburse funds to recipients, ensuring timely transactions.";
+            }
+        }
+
+        // The script for controlling the copyright  ////
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentYear = new Date().getFullYear();
+            const copyrightText = `Copyright © ${currentYear} Airtime Cabal  All rights reserved`;
+            document.getElementById("copyright").textContent = copyrightText;
+        });
 
     </script>
-
-<!-- For automatically copyig my email when clickedon -->
-<script>
-    function copyEmail() {
-        var emailField = document.getElementById("email");
-        emailField.select();
-        emailField.setSelectionRange(0, 99999); // For mobile devices
-
-        // Copy the text inside the text field
-        document.execCommand("copy");
-
-        // Alert or message to notify the user
-        alert("Email copied: " + emailField.value);
-    }
-
-
-
-    // the script for controlling the copyright 
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const currentYear = new Date().getFullYear();
-        const copyrightText = `Copyright © ${currentYear} Abdulwahab Adamson`;
-        document.getElementById("copyright").textContent = copyrightText;
-    });
-</script>
 </body>
 </html>
